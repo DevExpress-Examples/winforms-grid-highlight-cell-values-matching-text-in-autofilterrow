@@ -1,7 +1,8 @@
-﻿using System;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Windows.Forms;
 
-namespace CarsGridWinApp15
+namespace DXSample
 {
 	static class Program
 	{
@@ -13,7 +14,7 @@ namespace CarsGridWinApp15
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new Form1());
+			Application.Run(new Main());
 		}
 	}
 }
