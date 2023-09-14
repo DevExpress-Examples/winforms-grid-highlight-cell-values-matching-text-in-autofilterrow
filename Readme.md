@@ -3,16 +3,38 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/E3134)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-<!-- default file list -->
-*Files to look at*:
+
+# WinForms Data Grid - Highlight cell text that matches the filter (Auto Filter Row)
+
+This exampe handles the [CustomDrawCell](https://docs.devexpress.com/WindowsForms/DevExpress.XtraGrid.Views.Grid.GridView.CustomDrawCell) event to highlight cell text that matches the text in the corresponding cell in the auto filter row.
+
+![WinForms Data Grid - Highlight text in cells that matches the filter (Auto Filter Row)](https://raw.githubusercontent.com/DevExpress-Examples/how-to-enable-gridview-to-highlight-text-matching-text-typed-in-the-autofilterrow-in-cells-e3134/13.1.4%2B/media/winforms-grid-highlight-filter-string.png)
+
+```csharp
+private void gridView1_CustomDrawCell(object sender, RowCellCustomDrawEventArgs e) {
+    GridView view = (GridView)sender;
+    if (!view.OptionsView.ShowAutoFilterRow || !view.IsDataRow(e.RowHandle))
+        return;
+
+    string filterCellText = view.GetRowCellDisplayText(GridControl.AutoFilterRowHandle, e.Column);
+    if (String.IsNullOrEmpty(filterCellText))
+        return;
+
+    int filterTextIndex = e.DisplayText.IndexOf(filterCellText, StringComparison.CurrentCultureIgnoreCase);
+    if (filterTextIndex == -1)
+        return;
+    e.Appearance.FillRectangle(e.Cache, e.Bounds);
+    e.Cache.Paint.DrawMultiColorString(e.Cache, e.Bounds, e.DisplayText, filterCellText, e.Appearance, Color.Black, Color.Gold, false, filterTextIndex);
+    e.Handled = true;
+}
+```
+
+
+## Files to Review
 
 * [Main.cs](./CS/CarsGridWinApp15/Main.cs) (VB: [Main.vb](./VB/CarsGridWinApp15/Main.vb))
-<!-- default file list end -->
-# How to enable GridView to highlight text, matching text typed in the AutoFilterRow, in cells
 
 
-<p>This sample illustrates how to enable GridView to highlight text, matching text typed in the AutoFilterRow. For this we used the GridView's <a href="http://documentation.devexpress.com/#WindowsForms/DevExpressXtraGridViewsGridGridView_CustomDrawCelltopic"><u>CustomDrawCell</u></a> event and the DrawMultiColorString method provided by the XPaint.Graphics class.</p>
+## Documentation
 
-<br/>
-
-
+* [Custom Painting Basics](https://docs.devexpress.com/WindowsForms/762/controls-and-libraries/data-grid/appearance-and-conditional-formatting/custom-painting/custom-painting-basics)
