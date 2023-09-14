@@ -1,5 +1,7 @@
-﻿Namespace DXSample
-    Partial Public Class Main
+Namespace DXSample
+
+    Partial Class Main
+
         ''' <summary>
         ''' Required designer variable.
         ''' </summary>
@@ -10,14 +12,14 @@
         ''' </summary>
         ''' <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         Protected Overrides Sub Dispose(ByVal disposing As Boolean)
-            If disposing AndAlso (components IsNot Nothing) Then
-                components.Dispose()
+            If disposing AndAlso (Me.components IsNot Nothing) Then
+                Me.components.Dispose()
             End If
+
             MyBase.Dispose(disposing)
         End Sub
 
-        #Region "Windows Form Designer generated code"
-
+#Region "Windows Form Designer generated code"
         ''' <summary>
         ''' Required method for Designer support - do not modify
         ''' the contents of this method with the code editor.
@@ -36,9 +38,9 @@
             Me.colState = New DevExpress.XtraGrid.Columns.GridColumn()
             Me.colImage = New DevExpress.XtraGrid.Columns.GridColumn()
             Me.colDetail = New DevExpress.XtraGrid.Columns.GridColumn()
-            CType(Me.gridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-            CType(Me.gridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-            CType(Me.recordBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType((Me.gridControl1), System.ComponentModel.ISupportInitialize).BeginInit()
+            CType((Me.gridView1), System.ComponentModel.ISupportInitialize).BeginInit()
+            CType((Me.recordBindingSource), System.ComponentModel.ISupportInitialize).BeginInit()
             Me.SuspendLayout()
             ' 
             ' gridControl1
@@ -50,14 +52,15 @@
             Me.gridControl1.Name = "gridControl1"
             Me.gridControl1.Size = New System.Drawing.Size(562, 344)
             Me.gridControl1.TabIndex = 0
-            Me.gridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() { Me.gridView1})
+            Me.gridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridView1})
             ' 
             ' gridView1
             ' 
-            Me.gridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() { Me.colID, Me.colParentID, Me.colText, Me.colInfo, Me.colValue, Me.colDt, Me.colState, Me.colImage, Me.colDetail})
+            Me.gridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colID, Me.colParentID, Me.colText, Me.colInfo, Me.colValue, Me.colDt, Me.colState, Me.colImage, Me.colDetail})
             Me.gridView1.GridControl = Me.gridControl1
             Me.gridView1.Name = "gridView1"
             Me.gridView1.OptionsView.ShowAutoFilterRow = True
+            AddHandler Me.gridView1.CustomDrawCell, New DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(AddressOf Me.gridView1_CustomDrawCell)
             ' 
             ' recordBindingSource
             ' 
@@ -128,27 +131,36 @@
             Me.Controls.Add(Me.gridControl1)
             Me.Name = "Main"
             Me.Text = "Main"
-            CType(Me.gridControl1, System.ComponentModel.ISupportInitialize).EndInit()
-            CType(Me.gridView1, System.ComponentModel.ISupportInitialize).EndInit()
-            CType(Me.recordBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+            AddHandler Me.Load, New System.EventHandler(AddressOf Me.OnLoad)
+            CType((Me.gridControl1), System.ComponentModel.ISupportInitialize).EndInit()
+            CType((Me.gridView1), System.ComponentModel.ISupportInitialize).EndInit()
+            CType((Me.recordBindingSource), System.ComponentModel.ISupportInitialize).EndInit()
             Me.ResumeLayout(False)
-
         End Sub
 
-        #End Region
-
+#End Region
         Private gridControl1 As DevExpress.XtraGrid.GridControl
-        Private WithEvents gridView1 As DevExpress.XtraGrid.Views.Grid.GridView
+
+        Private gridView1 As DevExpress.XtraGrid.Views.Grid.GridView
+
         Private recordBindingSource As System.Windows.Forms.BindingSource
+
         Private colID As DevExpress.XtraGrid.Columns.GridColumn
+
         Private colParentID As DevExpress.XtraGrid.Columns.GridColumn
+
         Private colText As DevExpress.XtraGrid.Columns.GridColumn
+
         Private colInfo As DevExpress.XtraGrid.Columns.GridColumn
+
         Private colValue As DevExpress.XtraGrid.Columns.GridColumn
+
         Private colDt As DevExpress.XtraGrid.Columns.GridColumn
+
         Private colState As DevExpress.XtraGrid.Columns.GridColumn
+
         Private colImage As DevExpress.XtraGrid.Columns.GridColumn
+
         Private colDetail As DevExpress.XtraGrid.Columns.GridColumn
     End Class
 End Namespace
-
