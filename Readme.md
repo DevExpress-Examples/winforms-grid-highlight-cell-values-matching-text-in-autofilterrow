@@ -9,7 +9,7 @@
 
 This example handles the [CustomDrawCell](https://docs.devexpress.com/WindowsForms/DevExpress.XtraGrid.Views.Grid.GridView.CustomDrawCell) event to highlight cell text that matches the text in the corresponding cell in the auto filter row.
 
-![WinForms Data Grid - Highlight text in cells that match the filter (Auto Filter Row)](https://raw.githubusercontent.com/DevExpress-Examples/how-to-enable-gridview-to-highlight-text-matching-text-typed-in-the-autofilterrow-in-cells-e3134/13.1.4%2B/media/winforms-grid-highlight-filter-string.png)
+![WinForms Data Grid - Highlight text in cells that match the filter (Auto Filter Row)](media/winforms-grid-highlight-filter-string.png)
 
 ```csharp
 private void gridView1_CustomDrawCell(object sender, RowCellCustomDrawEventArgs e) {
@@ -46,3 +46,4 @@ private void gridView1_CustomDrawCell(object sender, RowCellCustomDrawEventArgs 
 
 (you will be redirected to DevExpress.com to submit your response)
 <!-- feedback end -->
+
